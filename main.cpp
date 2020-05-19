@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    int compras, atrasos, scorecompras, scoreatrasos, scoreformapagamento;
+    int compras, atrasos, scorecompras, scoreatrasos, scoreformapagamento, scorefinal;
     double valormedio;
     string formapagamento;
 
@@ -52,11 +52,27 @@ int main()
     if (compras != 0 && formapagamento == "D") {
         scoreformapagamento = 5;
     }
-    else if (compras != 0 && formapagamento != "D") {
+    else if (compras != 0 && formapagamento == "C") {
+        scoreformapagamento = 10;
+    }
+    else if (compras != 0 && formapagamento == "B") {
         scoreformapagamento = 10;
     }
 
     cout << "Score de forma de pagamento = " << scoreformapagamento << " pontos" << endl;
+
+    scorefinal = scorecompras + scoreatrasos + scoreformapagamento;
+
+    if (scorefinal >= 0 && scorefinal <= 25) {
+        cout << endl << "Classificacao final = CLIENTE BRONZE" << endl;
+    }
+    else if (scorefinal > 25 && scorefinal <= 75) {
+        cout << endl << "Classificacao final = CLIENTE PRATA" << endl;
+    }
+    else {
+        cout << endl << "Classificacao final = CLIENTE OURO" << endl;
+    }
+
 
     return 0;
 }
